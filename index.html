@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOOLSGAMES - Free Online Games</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8581020779274783"
+     crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --card-hover-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+            --border-radius: 16px;
+            --bg-color: #0f0f23;
+            --text-color: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-bar {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            font-size: 1rem;
+            width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255, 255, 255, 0.1);
+            width: 300px;
+        }
+
+        .search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .sidebar {
+            min-width: 220px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-item {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .category-item:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+        }
+
+        .category-item.active {
+            background: var(--primary-gradient);
+            font-weight: bold;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .ad-banner {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(102, 126, 234, 0.3);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            position: relative;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .game-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-thumbnail::after {
+            content: '🎮';
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .game-info {
+            padding: 1.25rem;
+        }
+
+        .game-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.75rem;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge.new {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .badge.hot {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .badge.popular {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        footer {
+            background: rgba(15, 15, 35, 0.95);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-bar:focus {
+                width: 100%;
+            }
+
+            .main-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+            }
+
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        .category-emoji {
+            font-size: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .game-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .game-card:nth-child(1) { animation-delay: 0.1s; }
+        .game-card:nth-child(2) { animation-delay: 0.2s; }
+        .game-card:nth-child(3) { animation-delay: 0.3s; }
+        .game-card:nth-child(4) { animation-delay: 0.4s; }
+        .game-card:nth-child(5) { animation-delay: 0.5s; }
+        .game-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .game-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .game-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-color);
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 1200px;
+            height: 90vh;
+            position: relative;
+            border: 2px solid rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            background: var(--primary-gradient);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .close-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .game-iframe {
+            width: 100%;
+            flex: 1;
+            border: none;
+            background: #000;
+        }
+
+        .modal-ad {
+            padding: 0.5rem;
+            background: var(--card-bg);
+            border-top: 1px solid rgba(102, 126, 234, 0.3);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: none;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+        }
+
+        .game-card:hover .play-button {
+            opacity: 1;
+        }
+
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">ABOOLSGAMES</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#new">New Games</a>
+                <a href="#popular">Popular</a>
+                <a href="#categories">Categories</a>
+            </nav>
+            <div class="search-container">
+                <input type="search" class="search-bar" placeholder="Search games..." id="searchBar">
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <div class="category-item active" data-category="all">
+                <span class="category-emoji">🎮</span>
+                <span>All Games</span>
+            </div>
+            <div class="category-item" data-category="action">
+                <span class="category-emoji">🚀</span>
+                <span>Action</span>
+            </div>
+            <div class="category-item" data-category="puzzle">
+                <span class="category-emoji">🧩</span>
+                <span>Puzzle</span>
+            </div>
+            <div class="category-item" data-category="racing">
+                <span class="category-emoji">🏎️</span>
+                <span>Racing</span>
+            </div>
+            <div class="category-item" data-category="adventure">
+                <span class="category-emoji">🗺️</span>
+                <span>Adventure</span>
+            </div>
+            <div class="category-item" data-category="sports">
+                <span class="category-emoji">⚽</span>
+                <span>Sports</span>
+            </div>
+            <div class="category-item" data-category="strategy">
+                <span class="category-emoji">♟️</span>
+                <span>Strategy</span>
+            </div>
+            <div class="category-item" data-category="arcade">
+                <span class="category-emoji">🕹️</span>
+                <span>Arcade</span>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="ad-banner">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8581020779274783"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
+            <section>
+                <h2 class="section-title">🔥 Hot Games</h2>
+                <div class="game-grid" id="hotGames"></div>
+            </section>
+
+            <div class="ad-banner">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8581020779274783"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
+            <section>
+                <h2 class="section-title">✨ New Games</h2>
+                <div class="game-grid" id="newGames"></div>
+            </section>
+
+            <section>
+                <h2 class="section-title">⭐ Popular Games</h2>
+                <div class="game-grid" id="popularGames"></div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ABOOLSGAMES. All rights reserved. Play free online games!</p>
+    </footer>
+
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Game Title</div>
+                <button class="close-button" id="closeModal">&times;</button>
+            </div>
+            <iframe class="game-iframe" id="gameIframe" allowfullscreen></iframe>
+            <div class="modal-ad" id="modalAd">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8581020779274783"
+                     data-ad-slot="1234567890"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        // EASY GAME CONFIGURATION - ADD YOUR GAMES HERE!
+        // ============================================================
+        // To add a new game, just copy the template below and fill in:
+        // - title: Game name
+        // - embedUrl: The iframe link to your game
+        // - description: Short description
+        // - category: action, puzzle, racing, adventure, sports, strategy, arcade
+        // - badge: hot, new, or popular
+        // - emoji: An emoji icon for the game
+        // - gradient: CSS gradient color (or keep existing ones)
+        
+        const games = [
+            {
+                title: 'Obby on a Bike',
+                embedUrl: 'https://app-257923.games.s3.yandex.net/257923/s5a0d9pp1nn3u5cow72nxvu8iv1brgwj_brotli/index.html?is-united-page=1&skip-guard=1&header=no&clid=8531463&sdk=%2Fsdk%2F_%2Fv2.65596c68a9df394f2bb5.js#origin=https%3A%2F%2Fplayhop.com&app-id=257923&device-type=desktop',
+                thumbnail: 'https://app-257923.games.s3.yandex.net/257923/s5a0d9pp1nn3u5cow72nxvu8iv1brgwj_brotli/logo.png',
+                description: 'Navigate obstacles on your bike!',
+                category: 'action',
+                badge: 'hot',
+                emoji: '🚴',
+                gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+            },
+            {
+                title: 'Merge Brainrot',
+                embedUrl: 'https://html5.gamedistribution.com/rvvASMiM/ea08335b6c9043e7a2403f6d5e8d1664/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fmerge-brainrot%2F&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5vbmxpbmVnYW1lcy5pby9tZXJnZS1icmFpbnJvdC8iLCJwYXJlbnREb21haW4iOiJvbmxpbmVnYW1lcy5pbyIsInRvcERvbWFpbiI6Im9ubGluZWdhbWVzLmlvIiwiaGFzSW1wcmVzc2lvbiI6dHJ1ZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xOCJ9',
+                thumbnail: 'https://www.onlinegames.io/media/posts/1057/responsive/merge-brainrot-xs.webp',
+                description: 'Merge and combine objects!',
+                category: 'puzzle',
+                badge: 'new',
+                emoji: '🧠',
+                gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+            },
+        ];
+
+        // ============================================================
+        // AD CONFIGURATION
+        // ============================================================
+        const adConfig = {
+            showBannerAds: true,              // Show banner ads between sections
+            showModalAds: true,               // Show ads in game modal
+            showAdEveryNGames: 6,             // Show ad banner after every N games (0 = disabled)
+            adClient: 'ca-pub-8581020779274783'
+        };
+
+        function createGameCard(game, index) {
+            const thumbnailContent = game.thumbnail 
+                ? `<img src="${game.thumbnail}" alt="${game.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="font-size: 4rem; display: none;">${game.emoji}</span>`
+                : `<span style="font-size: 4rem;">${game.emoji}</span>`;
+            
+            return `
+                <div class="game-card" data-category="${game.category}" data-game-index="${index}" onclick="openGame(${index})">
+                    <div class="game-thumbnail" style="background: ${game.gradient};">
+                        ${thumbnailContent}
+                        <button class="play-button">▶</button>
+                    </div>
+                    <div class="game-info">
+                        <div class="game-title">${game.title}</div>
+                        <div class="game-description">${game.description}</div>
+                        <div class="badge-container">
+                            <span class="badge ${game.badge}">${game.badge}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openGame(index) {
+            const game = games[index];
+            const modal = document.getElementById('gameModal');
+            const iframe = document.getElementById('gameIframe');
+            const title = document.getElementById('modalTitle');
+            const modalAd = document.getElementById('modalAd');
+            
+            title.textContent = game.title;
+            iframe.src = game.embedUrl;
+            modal.classList.add('active');
+            
+            if (!adConfig.showModalAds) {
+                modalAd.style.display = 'none';
+            } else {
+                modalAd.style.display = 'flex';
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {}
+            }
+        }
+
+        function closeGame() {
+            const modal = document.getElementById('gameModal');
+            const iframe = document.getElementById('gameIframe');
+            modal.classList.remove('active');
+            iframe.src = '';
+        }
+
+        function renderGames() {
+            const hotGames = games.filter(g => g.badge === 'hot').slice(0, 6);
+            const newGames = games.filter(g => g.badge === 'new').slice(0, 6);
+            const popularGames = games.filter(g => g.badge === 'popular').slice(0, 6);
+
+            document.getElementById('hotGames').innerHTML = hotGames.map((game, idx) => {
+                const gameIndex = games.indexOf(game);
+                return createGameCard(game, gameIndex);
+            }).join('');
+            
+            document.getElementById('newGames').innerHTML = newGames.map((game, idx) => {
+                const gameIndex = games.indexOf(game);
+                return createGameCard(game, gameIndex);
+            }).join('');
+            
+            document.getElementById('popularGames').innerHTML = popularGames.map((game, idx) => {
+                const gameIndex = games.indexOf(game);
+                return createGameCard(game, gameIndex);
+            }).join('');
+        }
+
+        const categoryItems = document.querySelectorAll('.category-item');
+        categoryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                categoryItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                const allCards = document.querySelectorAll('.game-card');
+                
+                allCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        const searchBar = document.getElementById('searchBar');
+        searchBar.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const allCards = document.querySelectorAll('.game-card');
+            
+            allCards.forEach(card => {
+                const title = card.querySelector('.game-title').textContent.toLowerCase();
+                const description = card.querySelector('.game-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        document.getElementById('closeModal').addEventListener('click', closeGame);
+        
+        document.getElementById('gameModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGame();
+            }
+        });
+
+        renderGames();
+
+        if (adConfig.showBannerAds) {
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+                console.log('AdSense not loaded');
+            }
+        } else {
+            document.querySelectorAll('.ad-banner').forEach(ad => ad.style.display = 'none');
+        }
+    </script>
+</body>
+</html>
