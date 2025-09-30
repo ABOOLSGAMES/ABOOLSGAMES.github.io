@@ -65,15 +65,35 @@
         .game-container {
             flex: 1;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             background: #000;
             overflow: hidden;
+            gap: 1rem;
+            padding: 1rem;
         }
 
         .game-iframe-wrapper {
             flex: 1;
             position: relative;
             min-height: 0;
+        }
+
+        .side-ad-container {
+            width: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .game-container {
+                flex-direction: column;
+            }
+            .side-ad-container {
+                width: 100%;
+                height: auto;
+            }
         }
 
         .game-iframe {
@@ -90,21 +110,6 @@
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.8);
             flex-shrink: 0;
-        }
-
-        .ad-container {
-            background: rgba(15, 15, 35, 0.95);
-            padding: 1rem;
-            min-height: 100px;
-            align-items: center;
-            justify-content: center;
-            border-top: 2px solid rgba(102, 126, 234, 0.3);
-            display: none;
-            flex-shrink: 0;
-        }
-
-        .ad-container.show {
-            display: flex;
         }
 
         .recommended-section {
@@ -164,7 +169,6 @@
 
         body.fullscreen .game-header,
         body.fullscreen .game-description,
-        body.fullscreen .ad-container,
         body.fullscreen .recommended-section {
             display: none !important;
         }
@@ -274,20 +278,33 @@
         <div class="game-iframe-wrapper">
             <iframe class="game-iframe" src="https://app-257923.games.s3.yandex.net/257923/s5a0d9pp1nn3u5cow72nxvu8iv1brgwj_brotli/index.html?is-united-page=1&skip-guard=1&header=no&clid=8531463&sdk=%2Fsdk%2F_%2Fv2.65596c68a9df394f2bb5.js#origin=https%3A%2F%2Fplayhop.com&app-id=257923&device-type=desktop" allowfullscreen></iframe>
         </div>
+        <div class="side-ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7685293722391044"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:360px;height:800px"
+                 data-ad-client="ca-pub-7685293722391044"
+                 data-ad-slot="4461325155"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </div>
 
     <div class="game-description">
         Navigate obstacles on your bike! Master challenging obstacle courses and perform incredible stunts in this action-packed biking adventure.
     </div>
 
-    <div class="ad-container" id="timedAd">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7685293722391044"
-             data-ad-slot="8567983321"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-    </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7685293722391044"
+         crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="autorelaxed"
+         data-ad-client="ca-pub-7685293722391044"
+         data-ad-slot="6624346261"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
 
     <div class="recommended-section">
         <h3 class="recommended-title">🎮 You Might Also Like</h3>
@@ -324,24 +341,6 @@
         function toggleHeader() {
             document.body.classList.toggle('header-hidden');
         }
-
-        let adShown = false;
-        setInterval(function() {
-            const adContainer = document.getElementById('timedAd');
-            if (!adShown) {
-                adContainer.classList.add('show');
-                setTimeout(function() {
-                    try {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch (e) {
-                        console.log('AdSense not loaded');
-                    }
-                }, 300);
-                adShown = true;
-            } else {
-                adContainer.classList.toggle('show');
-            }
-        }, 60000);
     </script>
 </body>
 </html>
