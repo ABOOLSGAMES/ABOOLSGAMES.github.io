@@ -195,20 +195,6 @@
             flex: 1;
         }
 
-        .ad-banner {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 1rem;
-            margin-bottom: 2rem;
-            min-height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed rgba(102, 126, 234, 0.3);
-            width: 100%;
-            overflow: hidden;
-        }
-
         .section-title {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
@@ -483,57 +469,59 @@
         </aside>
 
         <main class="content">
-            <div class="ad-banner">
-                <!-- deze -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7685293722391044"
-                     data-ad-slot="8567983321"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div>
-
             <section>
                 <h2 class="section-title">🔥 Hot Games</h2>
                 <div class="game-grid" id="hotGames"></div>
             </section>
 
-            <div class="ad-banner">
-                <!-- deze -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7685293722391044"
-                     data-ad-slot="8567983321"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7685293722391044"
+                 crossorigin="anonymous"></script>
+            <!-- deze -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7685293722391044"
+                 data-ad-slot="8567983321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
 
             <section>
                 <h2 class="section-title">✨ New Games</h2>
                 <div class="game-grid" id="newGames"></div>
             </section>
 
-            <div class="ad-banner">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-format="autorelaxed"
-                     data-ad-client="ca-pub-7685293722391044"
-                     data-ad-slot="6624346261"></ins>
-            </div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7685293722391044"
+                 crossorigin="anonymous"></script>
+            <!-- deze -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7685293722391044"
+                 data-ad-slot="8567983321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
 
             <section>
                 <h2 class="section-title">⭐ Popular Games</h2>
                 <div class="game-grid" id="popularGames"></div>
             </section>
 
-            <div class="ad-banner">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-7685293722391044"
-                     data-ad-slot="8567983321"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7685293722391044"
+                 crossorigin="anonymous"></script>
+            <!-- deze -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7685293722391044"
+                 data-ad-slot="8567983321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </main>
     </div>
 
@@ -596,16 +584,6 @@
                 gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
             },
         ];
-
-        // ============================================================
-        // AD CONFIGURATION
-        // ============================================================
-        const adConfig = {
-            showBannerAds: true,              // Show banner ads between sections
-            showAdEveryNGames: 6,             // Show ad banner after every N games (0 = disabled)
-            adClient: 'ca-pub-7685293722391044',
-            adSlot: '8567983321'
-        };
 
         function createGameCard(game, index) {
             const thumbnailContent = game.thumbnail 
@@ -687,21 +665,6 @@
         });
 
         renderGames();
-
-        if (adConfig.showBannerAds) {
-            setTimeout(function() {
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.log('AdSense not loaded');
-                }
-            }, 500);
-        } else {
-            document.querySelectorAll('.ad-banner').forEach(ad => ad.style.display = 'none');
-        }
     </script>
 </body>
 </html>
