@@ -400,88 +400,6 @@
         .game-card:nth-child(5) { animation-delay: 0.5s; }
         .game-card:nth-child(6) { animation-delay: 0.6s; }
 
-        .game-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .game-modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--bg-color);
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 1200px;
-            height: 90vh;
-            position: relative;
-            border: 2px solid rgba(102, 126, 234, 0.5);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-header {
-            padding: 1rem 1.5rem;
-            background: var(--primary-gradient);
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .close-button {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .close-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .game-iframe {
-            width: 100%;
-            flex: 1;
-            border: none;
-            background: #000;
-        }
-
-        .modal-ad {
-            padding: 0.5rem;
-            background: var(--card-bg);
-            border-top: 1px solid rgba(102, 126, 234, 0.3);
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .play-button {
             position: absolute;
             top: 50%;
@@ -565,10 +483,11 @@
 
         <main class="content">
             <div class="ad-banner">
+                <!-- deze -->
                 <ins class="adsbygoogle"
                      style="display:block"
-                     data-ad-client="ca-pub-8581020779274783"
-                     data-ad-slot="1234567890"
+                     data-ad-client="ca-pub-7685293722391044"
+                     data-ad-slot="8567983321"
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
             </div>
@@ -579,10 +498,11 @@
             </section>
 
             <div class="ad-banner">
+                <!-- deze -->
                 <ins class="adsbygoogle"
                      style="display:block"
-                     data-ad-client="ca-pub-8581020779274783"
-                     data-ad-slot="1234567890"
+                     data-ad-client="ca-pub-7685293722391044"
+                     data-ad-slot="8567983321"
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
             </div>
@@ -603,24 +523,6 @@
         <p>&copy; 2025 ABOOLSGAMES. All rights reserved. Play free online games!</p>
     </footer>
 
-    <div class="game-modal" id="gameModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title" id="modalTitle">Game Title</div>
-                <button class="close-button" id="closeModal">&times;</button>
-            </div>
-            <iframe class="game-iframe" id="gameIframe" allowfullscreen></iframe>
-            <div class="modal-ad" id="modalAd">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-8581020779274783"
-                     data-ad-slot="1234567890"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div>
-        </div>
-    </div>
-
     <script>
         // ============================================================
         // EASY GAME CONFIGURATION - ADD YOUR GAMES HERE!
@@ -637,7 +539,7 @@
         const games = [
             {
                 title: 'Obby on a Bike',
-                embedUrl: 'https://app-257923.games.s3.yandex.net/257923/s5a0d9pp1nn3u5cow72nxvu8iv1brgwj_brotli/index.html?is-united-page=1&skip-guard=1&header=no&clid=8531463&sdk=%2Fsdk%2F_%2Fv2.65596c68a9df394f2bb5.js#origin=https%3A%2F%2Fplayhop.com&app-id=257923&device-type=desktop',
+                pageUrl: 'obby-on-a-bike.html',
                 thumbnail: 'https://app-257923.games.s3.yandex.net/257923/s5a0d9pp1nn3u5cow72nxvu8iv1brgwj_brotli/logo.png',
                 description: 'Navigate obstacles on your bike!',
                 category: 'action',
@@ -647,7 +549,7 @@
             },
             {
                 title: 'Merge Brainrot',
-                embedUrl: 'https://html5.gamedistribution.com/rvvASMiM/ea08335b6c9043e7a2403f6d5e8d1664/index.html?gd_sdk_referrer_url=https%3A%2F%2Fwww.onlinegames.io%2Fmerge-brainrot%2F&gd_zone_config=eyJwYXJlbnRVUkwiOiJodHRwczovL3d3dy5vbmxpbmVnYW1lcy5pby9tZXJnZS1icmFpbnJvdC8iLCJwYXJlbnREb21haW4iOiJvbmxpbmVnYW1lcy5pbyIsInRvcERvbWFpbiI6Im9ubGluZWdhbWVzLmlvIiwiaGFzSW1wcmVzc2lvbiI6dHJ1ZSwibG9hZGVyRW5hYmxlZCI6dHJ1ZSwiaG9zdCI6Imh0bWw1LmdhbWVkaXN0cmlidXRpb24uY29tIiwidmVyc2lvbiI6IjEuNS4xOCJ9',
+                pageUrl: 'merge-brainrot.html',
                 thumbnail: 'https://www.onlinegames.io/media/posts/1057/responsive/merge-brainrot-xs.webp',
                 description: 'Merge and combine objects!',
                 category: 'puzzle',
@@ -662,9 +564,9 @@
         // ============================================================
         const adConfig = {
             showBannerAds: true,              // Show banner ads between sections
-            showModalAds: true,               // Show ads in game modal
             showAdEveryNGames: 6,             // Show ad banner after every N games (0 = disabled)
-            adClient: 'ca-pub-8581020779274783'
+            adClient: 'ca-pub-7685293722391044',
+            adSlot: '8567983321'
         };
 
         function createGameCard(game, index) {
@@ -673,7 +575,7 @@
                 : `<span style="font-size: 4rem;">${game.emoji}</span>`;
             
             return `
-                <div class="game-card" data-category="${game.category}" data-game-index="${index}" onclick="openGame(${index})">
+                <a href="${game.pageUrl}" class="game-card" data-category="${game.category}" style="text-decoration: none; color: inherit;">
                     <div class="game-thumbnail" style="background: ${game.gradient};">
                         ${thumbnailContent}
                         <button class="play-button">▶</button>
@@ -685,36 +587,8 @@
                             <span class="badge ${game.badge}">${game.badge}</span>
                         </div>
                     </div>
-                </div>
+                </a>
             `;
-        }
-
-        function openGame(index) {
-            const game = games[index];
-            const modal = document.getElementById('gameModal');
-            const iframe = document.getElementById('gameIframe');
-            const title = document.getElementById('modalTitle');
-            const modalAd = document.getElementById('modalAd');
-            
-            title.textContent = game.title;
-            iframe.src = game.embedUrl;
-            modal.classList.add('active');
-            
-            if (!adConfig.showModalAds) {
-                modalAd.style.display = 'none';
-            } else {
-                modalAd.style.display = 'flex';
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {}
-            }
-        }
-
-        function closeGame() {
-            const modal = document.getElementById('gameModal');
-            const iframe = document.getElementById('gameIframe');
-            modal.classList.remove('active');
-            iframe.src = '';
         }
 
         function renderGames() {
@@ -774,18 +648,11 @@
             });
         });
 
-        document.getElementById('closeModal').addEventListener('click', closeGame);
-        
-        document.getElementById('gameModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeGame();
-            }
-        });
-
         renderGames();
 
         if (adConfig.showBannerAds) {
             try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
                 (adsbygoogle = window.adsbygoogle || []).push({});
             } catch (e) {
                 console.log('AdSense not loaded');
