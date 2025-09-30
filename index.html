@@ -512,10 +512,28 @@
                 <div class="game-grid" id="newGames"></div>
             </section>
 
+            <div class="ad-banner">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7685293722391044"
+                     data-ad-slot="8567983321"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
             <section>
                 <h2 class="section-title">⭐ Popular Games</h2>
                 <div class="game-grid" id="popularGames"></div>
             </section>
+
+            <div class="ad-banner">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-7685293722391044"
+                     data-ad-slot="8567983321"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
         </main>
     </div>
 
@@ -556,6 +574,36 @@
                 badge: 'new',
                 emoji: '🧠',
                 gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+            },
+            {
+                title: 'Blocks Adventure Jungle Saga',
+                pageUrl: 'blocks-adventure-jungle-saga.html',
+                thumbnail: 'https://business.gamezop.com/img/gamezop/UCS62KJ8c/cover.jpg?w=300&q=50',
+                description: 'Adventure through the jungle blocks!',
+                category: 'adventure',
+                badge: 'new',
+                emoji: '🌴',
+                gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+            },
+            {
+                title: 'Bubble Shooter Classic',
+                pageUrl: 'bubble-shooter-classic.html',
+                thumbnail: 'https://business.gamezop.com/img/gamezop/yVywAGBQ6/cover.jpg?w=300&q=50',
+                description: 'Pop bubbles in this classic game!',
+                category: 'puzzle',
+                badge: 'popular',
+                emoji: '🎈',
+                gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
+            },
+            {
+                title: 'monkeymart',
+                pageUrl: 'monkey-mart.html',
+                thumbnail: 'https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=94,height=94,fit=cover,f=auto/ce4a204b6d2cc99d1879da0b2282b0d8/monkey-mart.png',
+                description: 'Own a store and sell as a monkey!',
+                category: 'action',
+                badge: 'popular',
+                emoji: '🎈',
+                gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
             },
         ];
 
@@ -651,12 +699,16 @@
         renderGames();
 
         if (adConfig.showBannerAds) {
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-                console.log('AdSense not loaded');
-            }
+            setTimeout(function() {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.log('AdSense not loaded');
+                }
+            }, 500);
         } else {
             document.querySelectorAll('.ad-banner').forEach(ad => ad.style.display = 'none');
         }
